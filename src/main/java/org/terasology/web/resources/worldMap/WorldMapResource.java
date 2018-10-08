@@ -110,7 +110,7 @@ public class WorldMapResource extends AbstractSimpleResource {
                 Block block = worldProvider.getBlock(x, blockY, z);
                 ResourceUrn blockUrn = block.getURI().getBlockFamilyDefinitionUrn();
                 if (Assets.get(blockUrn, BlockTile.class).isPresent()) {
-                    BufferedImage blockImage = Assets.get(blockUrn, BlockTile.class).get().getImage();
+                    BufferedImage blockImage = Assets.get(blockUrn, BlockTile.class).get().getImage(0);
                     colors.get(x - (center.getX() - mapBlockWidth / 2)).add(new Color(getColorOfTexture(blockImage, blockY)));
                 } else {
                     logger.warn("cannot find texture of block " + blockUrn.toString());
